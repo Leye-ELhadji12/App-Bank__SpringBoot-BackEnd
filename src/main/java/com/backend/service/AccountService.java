@@ -40,4 +40,6 @@ public interface AccountService {
     List<CustomerDTO> searchCustomer(String word);
 
     List<AccountLitDTO> listAccountsCustomer(int customerId) throws CustomerNotFound;
+
+    List<OperationCustomerDTO> getAllHistoriesAccounts(Long customerId, int page, int size);
 }

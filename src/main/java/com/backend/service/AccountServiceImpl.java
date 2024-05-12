@@ -192,7 +192,8 @@ public class AccountServiceImpl implements AccountService {
         return accountRepository.listAccountTypeByCustomerId(customerId);
     }
 
-    public List<OperationCustomerDTO> getAllHistoriesAccounts(int customerId, int page, int size) {
+    @Override
+    public List<OperationCustomerDTO> getAllHistoriesAccounts(Long customerId, int page, int size) {
         return operationRepository.getAllHistoriesByCustomerId(customerId, PageRequest.of(page, size));
     }
 }
