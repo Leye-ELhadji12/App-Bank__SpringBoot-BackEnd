@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class AccountDTO {
-    private String type;
+    private String type_account;
 }

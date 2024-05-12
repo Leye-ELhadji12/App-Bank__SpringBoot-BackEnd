@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "TYPE", length = 4)
+@DiscriminatorColumn(name = "type_account", length = 4)
 @Entity @Data @NoArgsConstructor @AllArgsConstructor
 public abstract class Account {
     @Id

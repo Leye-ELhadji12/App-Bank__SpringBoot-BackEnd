@@ -186,4 +186,13 @@ public class AccountServiceImpl implements AccountService {
         List<Customer> customerList = customerRepository.searchCustomerByName(word);
         return customerList.stream().map(accountMapper::customerDTO).collect(Collectors.toList());
     }
+
+    @Override
+    public List<AccountLitDTO> listAccountsCustomer(int customerId) throws CustomerNotFound {
+        return accountRepository.listAccountTypeByCustomerId(customerId);
+    }
+
+    public List<OperationCustomerDTO> getAllHistoriesAccounts(int customerId, int page, int size) {
+        return operationRepository.getAllHistoriesByCustomerId(customerId, PageRequest.of(page, size));
+    }
 }

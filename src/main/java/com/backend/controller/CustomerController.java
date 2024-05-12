@@ -44,7 +44,7 @@ public class CustomerController {
     }
 
     @DeleteMapping("/customer/{id}")
-    public void deleteCustomer(@PathVariable Long id) {
+    public void deleteCustomer(@PathVariable Long id) throws CustomerNotFound {
         accountServiceImpl.deleteCustomer(id);
     }
 }

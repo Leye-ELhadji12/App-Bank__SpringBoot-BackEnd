@@ -1,8 +1,10 @@
 package com.backend.controller;
 
 import com.backend.Execption.AccountNotFound;
+import com.backend.Execption.CustomerNotFound;
 import com.backend.dto.AccountDTO;
 import com.backend.dto.AccountHistoryDTO;
+import com.backend.dto.AccountLitDTO;
 import com.backend.dto.OperationDTO;
 import com.backend.service.AccountServiceImpl;
 import lombok.AllArgsConstructor;
@@ -14,12 +16,13 @@ import java.util.stream.LongStream;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin("*")
 public class AccountController {
 
     private final AccountServiceImpl accountService;
 
     @GetMapping("/accounts/{accountId}")
-    public AccountDTO getAccount(String accountId) throws AccountNotFound {
+    public AccountDTO getAccount(@PathVariable  String accountId) throws AccountNotFound {
         return accountService.getAccount(accountId);
     }
 
@@ -34,4 +37,10 @@ public class AccountController {
                                                  @RequestParam(name = "size", defaultValue = "5") int size) {
         return accountService.gethistoriesAccountOperation(accountId, page, size);
     }
+
+    @GetMapping("/accounts/list-account/{customerId}")
+    public List<AccountLitDTO> getListAccountsCustomer(@PathVariable int customerId) throws CustomerNotFound {
+        return accountService.listAccountsCustomer(customerId);
+    }
+
 }

@@ -24,7 +24,10 @@ public interface AccountService {
     void transfer(String accountSource, String accountDestination, double amount) throws BalanceNotEnoughException, AccountNotFound;
     List<AccountDTO> accountList();
 
+
     CustomerDTO getCustomer(Long customerId) throws CustomerNotFound;
+
+
 
     CustomerDTO updateCustomer(CustomerDTO customerDTO);
 
@@ -35,4 +38,6 @@ public interface AccountService {
     AccountHistoryDTO gethistoriesAccountOperation(String accountId, int page, int size);
 
     List<CustomerDTO> searchCustomer(String word);
+
+    List<AccountLitDTO> listAccountsCustomer(int customerId) throws CustomerNotFound;
 }
